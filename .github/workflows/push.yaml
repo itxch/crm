@@ -3,11 +3,12 @@ on: push
 
 jobs:
   playwright:
-    name: "Playwright Tests - ${{ matrix.project }}"
+    name: "${{ matrix.project }} - Playwright"
     runs-on: ubuntu-latest
 
     container:
       image: mcr.microsoft.com/playwright:v1.28.0-focal
+      options: --ipc host --user 1001
 
     strategy:
       fail-fast: false
